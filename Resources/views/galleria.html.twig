@@ -1,0 +1,32 @@
+<div id="galleria">
+    {% for image in galleria_images %}
+    <a href="{{ image.filename|apply_filter('productView') }}" rel="{{ image.filename|apply_filter('productFull') }}">
+    	<img title="{{ image.title }}"
+    	     alt="{{ image.description }}"
+    	     src="{{ image.filename|apply_filter('productGallery') }}">
+	</a>
+    {% endfor %}
+</div>
+<a href="#" id="gallery_fullscreen">Full Screen Mode</a>
+<script src="{{ asset('bundles/excellgalleria/js/galleria-1.2.6.min.js') }}"></script>
+<script>
+
+// Load the classic theme
+Galleria.loadTheme('{{ asset('bundles/excellgalleria/js/themes/classic/galleria.classic.min.js') }}');
+
+// Initialize Galleria
+$('#galleria').galleria({
+	width: 400,
+	height: 400,
+	imagePan: true,
+	imageCrop: true,
+	maxScaleRatio: 1
+})
+
+$('#gallery_fullscreen').click(function() {
+	Galleria.get(0).enterFullscreen();
+	event.preventDefault();
+});
+
+
+</script>

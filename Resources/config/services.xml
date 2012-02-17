@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <parameters>
+        <parameter key="excell_galleria.example.class">Excell\GalleriaBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="excell_galleria.example" class="%excell_galleria.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+
+    <services>
+        <service id="imagine.filter.loader.watermark" class="Excell\GalleriaBundle\Imagine\WatermarkFilterLoader">
+            <argument type="service" id="imagine.gd" />
+            <tag name="imagine.filter.loader" filter="watermark" />
+        </service>
+    </services>
+</container>
